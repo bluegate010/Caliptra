@@ -58,6 +58,7 @@ jobs:
           destination: gh-pages
       - name: Stage LOCK releases
         run: |
+          chown -R $(id -u):$(id -g) $PWD
           mkdir -p gh-pages/ocp-lock/specification/
           cp doc/ocp_lock/OCP_LOCK_Specification_*.pdf gh-pages/ocp-lock/specification/
       - name: Upload artifacts for index
